@@ -1,0 +1,56 @@
+﻿
+#logoCabecalho
+{
+    margin-right:30px;
+    margin-top: 12px;
+
+}
+
+.navbar-fixed-top .nav {
+    padding: 15px 0;
+}
+
+.navbar-fixed-top .navbar-brand {
+    padding: 0 15px;
+}
+
+.ativ
+{
+  color: #fff;
+  background-color: transparent;
+}
+
+.navbar-responsive
+{
+background: #003300;
+border-radius:5px;
+margin-top: 7px;
+}
+
+
+.menu
+{
+
+margin-top:1%;
+}
+
+.icon
+{
+ margin-right:10px;
+}
+
+.footer {
+	position:absolute;
+	bottom:0;
+	width:100%;
+}
+
+.font_nav
+{
+    font-size :18px;
+    margin-right:20px;
+
+}
+
+
+

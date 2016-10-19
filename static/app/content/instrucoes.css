@@ -1,0 +1,60 @@
+﻿#div_jumbo
+{   
+    margin-top:30px;
+    margin-bottom:20px;
+}
+
+.separador {  
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+.div_info
+{ 
+       margin-top:40px;
+}
+
+.exemplos{
+overflow-x:scroll;
+overflow-y:scroll;
+border-radius:10px;
+background:#DAE4E4 ;  /* edite cor de fundo*/
+border:1px solid #DAE4E4;  /* edite cor e tipo de borda */
+color:black;  /* cor da fonte*/
+font-size:70%;  /* tamanho da fonte */
+height:150px; /* edite a altura máxima da caixa*/
+display:block;
+white-space:pre;
+text-align:left;
+word-wrap:break-word;
+padding:0 10px 5px 0px;
+}
+
+.string
+{
+    color:red;
+}
+.function
+{
+    color:blue;
+}
+.bold
+{
+    font-weight:bold;
+}
+
+#indices
+{
+    height:300px;
+    overflow:auto;
+    background:#DAE4E4 ;
+    border:1px solid #DAE4E4;
+    border-radius:10px;
+}
+
+#indices > .row
+{
+    margin:10px;
+    padding:10px;
+
+}

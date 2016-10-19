@@ -1,0 +1,48 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+    <div id="div_jumbo" style="height:600px; margin-bottom:30px;">          
+        <div class="row jumbotron">
+            <h1>PortService-Br</h1>
+            <div class="col-md-12">
+               <h4 class="text-success bold">Apresentação</h4>
+                          <div class="text-justify texto_sobre">
+                            O projeto PortService-Br, tem como objetivo,disponibilizar uma plataforma de serviços
+                            para Processamento de Linguagem Natural (PLN) para a língua portuguesa baseado em uma API REST FULL. A API pode ser acessada
+                            por qualquer computador remoto ou dispositivo móvel conectados a internet. O Projeto explora duas funcionalidades de PLN: a
+                            etiquetagem morfossintática e a análise léxico semântica. Os serviços de etiquetagem morfossintática ou Part-Of-Speech Tagging
+                            (POST) são providos por um etiquetador desenvolvido no âmbito deste projeto denominado "Etiquetador Padrão" e mais dois etiquetadores de
+                            livre acesso o <a target="_blank" href="http://nlp.lsi.upc.edu/freeling/">Freeling</a> e o
+                            <a target="_blank" href="http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>.
+                            Os recursos de análise léxico semântica são providos por duas wordnets da língua portuguesa o
+                            <a target="_blank" href="http://ontopt.dei.uc.pt/">Onto.PT</a> e o <a target="_blank" href="http://wordnet.pt/">Pulo</a> .
+                            A plataforma permite acesso totalmente gratuito a pesquisadores e interessados.
+                          </div>
+
+                        <div class="text-justify texto_sobre">O PortService-Br foi desenvolvido no âmbito do projeto de Mestrado de <a href="http://lattes.cnpq.br/7761879721561939" target="_blank"> Wanderson Rocha de Almeida</a>,
+                         sendo este parte do projeto de doutorado de <a target="_blank" href="http://lattes.cnpq.br/7419525198796496">Marcello Novaes de Amorim</a>  com orientação de <a href="http://lattes.cnpq.br/5998785809434157" target="">Orivaldo de Lira Tavares</a>  no Laboratório de Informática na Educação da Universidade Federal do Espirito Santo (UFES).
+                        </div>
+
+                        <div class="text-justify texto_sobre">O projeto faz parte de uma projeto maior, financiado pelo governo federal denominado <a target="_blank" href="http://www.tas.fee.unicamp.br/">Tecnologias Assistivas para Surdos</a> (TAS), 
+                        coordenado por <a href=" http://lattes.cnpq.br/8467650381711612">José Mario De Martino</a> . O Projeto engloba três instituições de ensino superior: Universidade Estadual de Campinas, Universidade Federal do Espírito Santos e Universidade Federal de Alagoas.
+                        </div>
+                    </div>
+
+            <div class="col-md-12">
+               <h4 class="text-success bold">Sobre o Autor</h4>
+                          <div class="text-justify texto_sobre">
+                          Wanderson é formado em Sistemas de Informação pela faculdade Multivix Cachoeiro de Itapemirim, atualmente mestrando em 
+                          Ciência da Computação na Univerdade Federal do Espirito Santo (UFES). Possui conhecimentos em Inteligência Artificial,
+                          Processamento de Digital de Imagens, Processamento de Liguagem Natural, entre outros.
+                        </div>                       
+                    </div>
+               </div>
+        </div>
+      
+
+{% endblock %}
+
+{% block scripts %}    
+{% endblock %}
+

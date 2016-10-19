@@ -1,0 +1,12 @@
+﻿
+
+#div_jumbo
+{
+    height:400px;
+    margin-top:30px;
+}
+
+#div_jumbo > .jumbotron
+{
+    height:300px;
+}

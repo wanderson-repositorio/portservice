@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html> <!-- HTML5 document type -->
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="portservice,PortService,PortService-Br,portservice-br,plataforma,processamento,linguagem natural,pln,português,etiquetagem morfossintática,wordnet,Wanderson Rocha,web service" />
+    <meta name="description" content="PortService-Br: plataforma para processamento de linguagem natural da língua portuguesa" />
+
+    <title >{{title}}</title>
+    {% load staticfiles %}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/site.css' %}" />
+    <link rel="shortcut icon" type="image/x-icon"  href="http://portservice.pythonanywhere.com/static/app/imagens/favicon.svg" />
+    <link rel="icon" type="image/x-icon"  href="http://portservice.pythonanywhere.com/static/app/imagens/favicon.svg" />
+    <link rel="stylesheet" type="text/css" href="{% static 'app/content/rodape.css' %}" />
+
+     {% if instrucoes %}
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/instrucoes.css' %}" />
+     {% endif%}
+
+     {% if inicio %}
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/inicio.css' %}" />
+     {% endif %}
+
+     {% if sobre %}
+        <link rel="stylesheet" type="text/css" href="{% static 'app/content/sobre.css' %}" />
+     {% endif %}
+
+    {% if conceituacao %}
+       <link href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.5.4/bootstrap-select.min.css" rel="stylesheet">
+       <link rel="stylesheet" type="text/css" href="{% static 'app/content/conceituacao.css' %}" />
+    {% endif %}
+
+
+</head>
+
+
+<body style="padding-top:100px;">
+     <nav role="navigation" class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <!--<span class="icon-bar"></span>-->
+            <!--<span class="icon-bar"></span>-->
+          </button>
+         <a id="logoCabecalho" class="navbar-brand" href="{% url 'inicio' %}"><img src="{% static 'app/imagens/portservicebr-logo-nav.svg'%}" alt="PortService-Br"  class="img-responsive" /></a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse navbar-responsive">
+          <ul class="nav navbar-nav">
+            <li><a {% if inicio %}  style="color: #fff; background-color: transparent;"{% endif%} href="{% url 'inicio' %}" class="font_nav"><i class="glyphicon glyphicon-home icon"></i>Início</a></li>
+            <li><a {% if sobre %}  style="color: #fff; background-color: transparent;"{% endif%}  href="{% url 'sobre' %}"  class="font_nav"><i class="glyphicon glyphicon-exclamation-sign icon"></i>Projeto</a></li>
+            <!--<li><a {% if publicacoes %}  style="color: #fff; background-color: transparent;"{% endif%}  href="{% url 'publicacoes' %}"  class="font_nav"><i class="glyphicon glyphicon-education icon"></i> Publicações</a></li> -->
+            <li><a {% if conceituacao %}  style="color: #fff; background-color: transparent;"{% endif%}  href="{% url 'consultar' %}"  class="font_nav"><i class="glyphicon glyphicon-book icon"></i>Consultar</a></li>
+            <li><a {% if instrucoes %}  style="color: #fff; background-color: transparent;"{% endif%} href="{% url 'instrucoes' %}"  class="font_nav"><i class="glyphicon glyphicon-cog icon"></i>Instruções</a></li>
+
+          </ul>
+        </div><!--/.nav-collapse -->
+
+    </nav>
+
+    <div class="container">
+         {% block content %}{% endblock %}
+    </div>
+            <footer class="rodape-pagina">
+                <div class="footer" id="footer">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-3  col-md-3 col-sm-4 col-xs-7">
+                                <h3>Projetos Parceiros </h3>
+                                <ul>
+                                    <li><a href="http://ontopt.dei.uc.pt/" target="_blank">Onto.PT</a></li>
+                                    <li><a href="http://www.linguateca.pt/" target="_blank">Linguateca</a></li>
+                                    <li><a href="https://github.com/own-pt/openWordnet-PT" target="_blank">OpenWordnet-PT</a></li>
+                                    <li><a href="http://natura.di.uminho.pt/webjspell/jsol.pl" target="_blank">Jspell Web</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3  col-md-3 col-sm-4 col-xs-7">
+                                <h3>Noticias </h3>
+                                <ul>
+                                    <li><a href="http://www.cicling.org/" target="_blank">CICLing</a></li>
+                                    <li><a href="http://naacl.org/naacl-hlt-2016/index.html" target="_blank">NAACL HTL 2016</a></li>
+                                    <li><a href="http://acl2016.org/" target="_blank">ACL 2016</a></li>
+                                    <li><a href="http://ijcai-16.org/" target="_blank">IJCAI-16</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-3  col-md-3 col-sm-4 col-xs-7">
+                                <h3>Tecnologias</h3>
+                                <ul>
+                                    <li><a href="https://www.python.org/" target="_blank">Python</a></li>
+                                    <li><a href="https://www.djangoproject.com/" target="_blank">Django</a></li>
+                                    <li><a href="https://github.com/RDFLib/rdflib" target="_blank">RDFLib</a></li>
+                                    <li><a href="http://www.nltk.org/" target="_blank">NLTK</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-lg-3  col-md-3 col-sm-6 col-xs-12">
+                                <h3>Redes Sociais </h3>
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="pull-left">Copyright © Wanderson Rocha {{ year }}. All right reserved. </p>
+                        <div class="pull-right">
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+
+    <script src="{% static 'app/scripts/modernizr-2.6.2.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{% static 'app/scripts/bootstrap.min.js' %}"></script>
+    <script src="{% static 'app/scripts/respond.js' %}"></script>
+    <script src="{% static 'app/scripts/bootbox.min.js' %}"></script>
+
+    {% if conceituacao %}
+     <script src="{% static 'app/scripts/conceituacao.js' %}"></script>
+    {% endif %}
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

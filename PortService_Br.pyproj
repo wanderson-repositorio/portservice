@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>PortService_Br</Name>
+    <RootNamespace>PortService-Br</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>e843a76e-4517-419f-8468-cb19a10496d0</ProjectGuid>
+    <ProjectHome>
+    </ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="app\views.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="manage.py" />
+    <Compile Include="PortService_Br\settings.py" />
+    <Compile Include="PortService_Br\urls.py" />
+    <Compile Include="PortService_Br\__init__.py" />
+    <Compile Include="PortService_Br\wsgi.py" />
+    <Compile Include="PortServiceAcessoOntoPT\AcessoOntoPT.py" />
+    <Compile Include="PortServiceAcessoOntoPT\__init__.py" />
+    <Compile Include="PortServiceDB\AcessoPortServiceDB.py" />
+    <Compile Include="PortServiceDB\Connection.py" />
+    <Compile Include="PortServiceDB\__init__.py" />
+    <Compile Include="PortServiceJSON\Json.py" />
+    <Compile Include="PortServiceJSON\__init__.py" />
+    <Compile Include="PortServiceJspell\JspellAcessInterface.py" />
+    <Compile Include="PortServiceJspell\__init__.py" />
+    <Compile Include="PortServiceModelos\Significado.py" />
+    <Compile Include="PortServiceModelos\Tarefas.py" />
+    <Compile Include="PortServiceModelos\Token.py" />
+    <Compile Include="PortServiceModelos\__init__.py" />
+    <Compile Include="PortServicePLN\TextoPLN.py" />
+    <Compile Include="PortServicePLN\__init__.py" />
+    <Compile Include="PortServiceXML\ElementTree_pretty.py" />
+    <Compile Include="PortServiceXML\XML.py" />
+    <Compile Include="PortServiceXML\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\app\" />
+    <Folder Include="app\static\app\content\" />
+    <Folder Include="app\static\app\fonts\" />
+    <Folder Include="app\static\app\imagens\" />
+    <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\templates\" />
+    <Folder Include="app\templates\app\" />
+    <Folder Include="PortServicePLN\arquivos\taggers\" />
+    <Folder Include="PortServicePLN\arquivos\taggers\hibrido\" />
+    <Folder Include="PortService_Br\" />
+    <Folder Include="PortServiceAcessoOntoPT\" />
+    <Folder Include="PortServiceAcessoOntoPT\arquivos\" />
+    <Folder Include="PortServiceAcessoOntoPT\__pycache__\" />
+    <Folder Include="PortServiceDB\" />
+    <Folder Include="PortServiceDB\__pycache__\" />
+    <Folder Include="PortServiceJSON\" />
+    <Folder Include="PortServiceJSON\__pycache__\" />
+    <Folder Include="PortServiceJspell\" />
+    <Folder Include="PortServiceJspell\__pycache__\" />
+    <Folder Include="PortServiceModelos\" />
+    <Folder Include="PortServiceModelos\__pycache__\" />
+    <Folder Include="PortServicePLN\" />
+    <Folder Include="PortServicePLN\arquivos\" />
+    <Folder Include="PortServicePLN\__pycache__\" />
+    <Folder Include="PortServiceXML\" />
+    <Folder Include="PortServiceXML\__pycache__\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\static\app\content\bootstrap.css" />
+    <Content Include="app\static\app\content\bootstrap.min.css" />
+    <Content Include="app\static\app\content\cadastro.css" />
+    <Content Include="app\static\app\content\conceituacao.css" />
+    <Content Include="app\static\app\content\contato.css" />
+    <Content Include="app\static\app\content\inicio.css" />
+    <Content Include="app\static\app\content\instrucoes.css" />
+    <Content Include="app\static\app\content\rodape.css" />
+    <Content Include="app\static\app\content\site.css" />
+    <Content Include="app\static\app\content\sobre.css" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\static\app\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\static\app\imagens\favicon.png" />
+    <Content Include="app\static\app\imagens\favicon.svg" />
+    <Content Include="app\static\app\imagens\portservicebr-logo-nav.png" />
+    <Content Include="app\static\app\imagens\portservicebr-logo-nav.svg" />
+    <Content Include="app\static\app\imagens\portservicebr.png" />
+    <Content Include="app\static\app\imagens\portservicebr.svg" />
+    <Content Include="app\static\app\scripts\bootstrap.js" />
+    <Content Include="app\static\app\scripts\bootstrap.min.js" />
+    <Content Include="app\static\app\scripts\conceituacao.js" />
+    <Content Include="PortServiceAcessoOntoPT\arquivos\onto_pt.pickle" />
+    <Content Include="PortServiceAcessoOntoPT\arquivos\dicionario_operacoes.txt" />
+    <Content Include="PortServiceAcessoOntoPT\__pycache__\AcessoOntoPT.cpython-34.pyc" />
+    <Content Include="PortServiceAcessoOntoPT\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="PortServiceDB\__pycache__\AcessoWordService.cpython-34.pyc" />
+    <Content Include="PortServiceDB\__pycache__\AcessUser.cpython-34.pyc" />
+    <Content Include="PortServiceDB\__pycache__\Connection.cpython-34.pyc" />
+    <Content Include="PortServiceDB\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="PortServiceJSON\__pycache__\Json.cpython-34.pyc" />
+    <Content Include="PortServiceJSON\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="PortServiceJspell\__pycache__\JspellAcessInterface.cpython-34.pyc" />
+    <Content Include="PortServiceJspell\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="PortServiceModelos\Conceituacao.pyc" />
+    <Content Include="PortServiceModelos\Palavra.pyc" />
+    <Content Include="PortServiceModelos\__pycache__\Conceituacao.cpython-34.pyc" />
+    <Content Include="PortServiceModelos\__pycache__\Palavra.cpython-34.pyc" />
+    <Content Include="PortServiceModelos\__pycache__\Significado.cpython-34.pyc" />
+    <Content Include="PortServiceModelos\__pycache__\Tarefas.cpython-34.pyc" />
+    <Content Include="PortServiceModelos\__pycache__\Token.cpython-34.pyc" />
+    <Content Include="PortServiceModelos\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="PortServicePLN\arquivos\dicionarioMultiWord.pickle" />
+    <Content Include="PortServicePLN\arquivos\dicionario_contracoes.txt" />
+    <Content Include="PortServicePLN\arquivos\processadorMultWord.pickle" />
+    <Content Include="PortServicePLN\arquivos\taggers\hibrido\etiquetador.pickle" />
+    <Content Include="PortServicePLN\__pycache__\TextoPLN.cpython-34.pyc" />
+    <Content Include="PortServicePLN\__pycache__\__init__.cpython-34.pyc" />
+    <Content Include="PortServiceXML\__pycache__\ElementTree_pretty.cpython-34.pyc" />
+    <Content Include="PortServiceXML\__pycache__\XML.cpython-34.pyc" />
+    <Content Include="PortServiceXML\__pycache__\__init__.cpython-34.pyc" />
+    <None Include="app\static\app\scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.js" />
+    <Content Include="app\static\app\scripts\jquery-1.10.2.min.map" />
+    <None Include="app\static\app\scripts\jquery.validate-vsdoc.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.min.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="app\static\app\scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="app\static\app\scripts\modernizr-2.6.2.js" />
+    <Content Include="app\static\app\scripts\npm.js" />
+    <Content Include="app\static\app\scripts\respond.js" />
+    <Content Include="app\static\app\scripts\respond.min.js" />
+    <None Include="app\static\app\scripts\_references.js" />
+    <Content Include="app\templates\app\conceituacao.html" />
+    <Content Include="app\templates\app\inicio.html" />
+    <Content Include="app\templates\app\instrucoes.html" />
+    <Content Include="app\templates\app\layout.html" />
+    <Content Include="app\templates\app\publicacoes.html" />
+    <Content Include="app\templates\app\sobre.html" />
+    <Content Include="app\templates\app\tag_set.html" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="readme.mht">
+      <SubType>WebBrowser</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

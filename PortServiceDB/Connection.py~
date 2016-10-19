@@ -1,0 +1,11 @@
+﻿import pymysql
+class Connection(object):
+
+
+    @staticmethod
+    def GetConexao(database):
+        conexao = pymysql.connect(user= 'root',password= '',host='localhost',database= database, charset="utf8",cursorclass=pymysql.cursors.DictCursor)
+        cursor = conexao.cursor()  
+        return cursor
+
+

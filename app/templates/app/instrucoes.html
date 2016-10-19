@@ -1,0 +1,794 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+    {% load staticfiles %}
+    <div id="div_jumbo">
+        <div class="row jumbotron">
+            <h1>PortService-Br</h1>
+            <div class="col-md-12">
+                <h4 class="text-success bold">1. Introdução</h4>
+                <div class="text-justify separador">
+                    Esta página, fornece instruções para acesso e utilização dos recursos disponibilizados pela
+                    plataforma PortService-Br.
+                    A plataforma fornece ferramentas de etiquetagem morfossintática ou Part-Of-Speech Tagging
+                    (POST), juntamente com recursos de análise léxico-semântica.
+                    Os serviços podem ser requisitados remotamente por computadores desktop ou dispositivos móveis
+                    conectados a internet.
+                    No decorrer desta página serão explicadas as formas de acesso a cada recurso, bem como exemplos
+                    de consultas e parâmetros necessários.
+                </div>
+
+
+                <div class="div_info">
+                    <div class="container">
+                        <h4 class="text-success bold">2. Acesso ao serviço de part-of-speech tagging (POST)</h4>
+                        <div class="text-justify separador">
+                            O serviço de POST é dividido em três etiquetadores que são acessados de forma individual
+                            com URLs especificas para cada
+                            etiquetador, podendo o requerente optar por usar o etiquetador desenvolvido nesta no
+                            âmbito desta pesquisa denominado
+                            "Etiquetador Padrão" ou usar os etiquetadores <a target="_blank"
+                                                                             href="http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/">TreeTagger</a>
+                            e o <a target="_blank" href="http://nlp.lsi.upc.edu/freeling/">Freeling</a>.
+                            O serviço de POST recebe como entrada um texto na língua portuguesa, e devolve esse
+                            mesmo texto na forma de uma lista de <i>tokens</i> com suas etiquetas
+                            morfossintáticas, bem como o lemma correspondente a cada <i>token</i> contido no texto
+                            (caso exista lemma correspondente). A resposta pode ser obtida nos formatos XML e JSON.
+                            O conjunto completo de etiquetas usadas pelo "Etiquetador Padrão" desenvolvido neste
+                            projeto PortService-Br estão disponíveis neste <a target="_blank"
+                                                                              href="http://beta.visl.sdu.dk/visl/pt/info/portsymbol.html">link</a>,
+                            são usadas etiquetas de
+                            classes de palavras, de inflexão e de sub-classe. O Conjunto de etiquetas usadas pelo
+                            TreeTagger estão disponíveis neste <a target="_blank"
+                                                                  href="http://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/data/Portuguese-Tagset.html">link</a>
+                            ,o conjunto de etiquetas usadas pelo Freeling estão disponíveis neste <a target="_blank"
+                                                                                                     href="https://talp-upc.gitbooks.io/freeling-user-manual/content/tagsets/tagset-pt.html">link</a>.
+                        </div>
+
+                        <div class="container">
+                            <h5 class="text-success bold">2.1. Informações Técnicas de Acesso ao Etiquetador
+                                Padrão</h5>
+                            <div class="text-justify separador">
+                                <div><label class="bold">Url para resposta em formato JSON: </label>
+                                    http://portservice.pythonanywhere.com/get_analise_morfossintatica_padrao_json
+                                </div>
+                                <div><label class="bold">Url para resposta em formato XML: </label>
+                                    http://portservice.pythonanywhere.com/get_analise_morfossintatica_padrao_xml
+                                </div>
+                                <div><label class="bold">Parâmetro: </label> texto_portugues</div>
+                            </div>
+
+
+                            <div class="separador">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de requisição JSON com Jquery via Ajax:
+                                        </div>
+                                        <div class="exemplos">
+                                            $.ajax({
+                                            type: <span class="string">"GET"</span>,
+                                            url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_morfossintatica_padrao_json/"</span>,
+                                            dataType:<span class="string">"json"</span>,
+                                            data: {<span class="string">"texto_portugues":"teste"</span>},
+                                            success:<span class="function"> function</span> (retorno) {
+                                            },
+
+                                            error: <span class="function">function</span> () {
+                                            }
+                                            });
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de requisição XML com Jquery via Ajax:
+                                        </div>
+                                        <div class="exemplos">
+                                            $.ajax({
+                                                type: <span class="string">"GET"</span>,
+                                                url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_morfossintatica_padrao_xml/"</span>,
+                                                dataType:<span class="string">"xml"</span>,
+                                                data: {<span class="string">"texto_portugues":"teste"</span>},
+                                                success:<span class="function"> function</span> (retorno) {
+                                                },
+
+                                                error: <span class="function">function</span> () {
+                                                }
+                                            });
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de retorno em JSON</div>
+                                        <div class="exemplos">
+                                            {
+                                                "texto": [
+                                                    {
+                                                        "token": {
+                                                            "pos": "N",
+                                                            "genero": "M",
+                                                            "lema": "teste",
+                                                            "modo": "--",
+                                                            "numero": "S",
+                                                            "palavra": "teste",
+                                                            "pessoa": "--",
+                                                            "sub_class": "--",
+                                                            "tempo": "--",
+                                                            "finitude": "--"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de retorno em XML</div>
+                                        <div class="exemplos">
+                                            &lt;?xml version=&quot;1.0&quot; ?&gt;
+                                            &lt;texto&gt;
+                                                &lt;token&gt;
+                                                    &lt;palavra&gt;teste&lt;/palavra&gt;
+                                                    &lt;lema&gt;teste&lt;/lema&gt;
+                                                    &lt;pos&gt;N&lt;/pos&gt;
+                                                    &lt;genero&gt;M&lt;/genero&gt;
+                                                    &lt;numero&gt;S&lt;/numero&gt;
+                                                    &lt;sub_class&gt;--&lt;/sub_class&gt;
+                                                    &lt;pessoa&gt;--&lt;/pessoa&gt;
+                                                    &lt;modo&gt;--&lt;/modo&gt;
+                                                    &lt;tempo&gt;--&lt;/tempo&gt;
+                                                    &lt;finitude&gt;--&lt;/finitude&gt;
+                                                &lt;/token&gt;
+                                            &lt;/texto&gt;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="container">
+                            <h5 class="text-success bold">2.2. Informações técnicas de acesso ao etiquetador
+                                TreeTagger</h5>
+                            <div class="text-justify separador">
+                                <div><label class="bold">Url para resposta em formato JSON: </label>http://portservice.pythonanywhere.com/get_analise_morfossintatica_treetagger_json
+                                </div>
+                                <div><label class="bold">Url para resposta em formato XML: </label>http://portservice.pythonanywhere.com/get_analise_morfossintatica_treetagger_xml
+                                </div>
+                                <div><label class="bold">Parâmetro: </label>texto_portugues</div>
+                            </div>
+
+
+                            <div class="separador">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de requisição JSON com Jquery via Ajax:
+                                        </div>
+                                        <div class="exemplos">
+                                            $.ajax({
+                                                type: <span class="string">"GET"</span>,
+                                                url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_morfossintatica_treetagger_json/"</span>,
+                                                dataType:<span class="string">"json"</span>,
+                                                data: {<span class="string">"texto_portugues":"teste"</span>},
+                                                success:<span class="function"> function</span> (retorno) {
+                                                },
+
+                                                error: <span class="function">function</span> () {
+                                                }
+                                            });
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de requisição XML com Jquery via Ajax:
+                                        </div>
+                                        <div class="exemplos">
+                                            $.ajax({
+                                                type: <span class="string">"GET"</span>,
+                                                url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_morfossintatica_treetagger_xml/"</span>,
+                                                dataType:<span class="string">"xml"</span>,
+                                                data: {<span class="string">"texto_portugues":"teste"</span>},
+                                                success:<span class="function"> function</span> (retorno) {
+                                                },
+
+                                                error: <span class="function">function</span> () {
+                                                }
+                                            });
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de retorno em JSON</div>
+                                        <div class="exemplos">
+                                            {
+                                                "texto": [
+                                                {
+                                                    "token": {
+                                                    "lema": "teste",
+                                                    "palavra": "teste",
+                                                    "pos": "NCMS"
+                                                    }
+                                                }
+                                                ]
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de retorno em XML</div>
+                                        <div class="exemplos">
+                                            &lt;texto&gt;
+                                                &lt;token&gt;
+                                                &lt;palavra&gt;teste&lt;/palavra&gt;
+                                                &lt;lema&gt;teste&lt;/lema&gt;
+                                                &lt;pos&gt;NCMS&lt;/pos&gt;
+                                                &lt;/token&gt;
+                                            &lt;/texto&gt;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="container">
+                            <h5 class="text-success bold">2.3. Informações técnicas de acesso ao etiquetador
+                                Freeling</h5>
+                            <div class="text-justify separador">
+                                <div><label class="bold">Url para resposta em formato JSON: </label>http://portservice.pythonanywhere.com/get_analise_morfossintatica_freeling_json
+                                </div>
+                                <div><label class="bold">Url para resposta em formato XML: </label>http://portservice.pythonanywhere.com/get_analise_morfossintatica_freeling_xml
+                                </div>
+                                <div><label class="bold">Parâmetro: </label>texto_portugues</div>
+                            </div>
+
+
+                            <div class="separador">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de requisição JSON com Jquery via Ajax:
+                                        </div>
+                                        <div class="exemplos">
+                                            $.ajax({
+                                                type: <span class="string">"GET"</span>,
+                                                url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_morfossintatica_freeling_json/"</span>,
+                                                dataType:<span class="string">"json"</span>,
+                                                data: {<span class="string">"texto_portugues":"teste"</span>},
+                                                success:<span class="function"> function</span> (retorno) {
+                                                },
+
+                                                error: <span class="function">function</span> () {
+                                                }
+                                            });
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de requisição XML com Jquery via Ajax:
+                                        </div>
+                                        <div class="exemplos">
+                                            $.ajax({
+                                                type: <span class="string">"GET"</span>,
+                                                url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_morfossintatica_freeling_xml/"</span>,
+                                                dataType:<span class="string">"xml"</span>,
+                                                data: {<span class="string">"texto_portugues":"teste"</span>},
+                                                success:<span class="function"> function</span> (retorno) {
+                                                },
+
+                                                error: <span class="function">function</span> () {
+                                                }
+                                            });
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de retorno em JSON</div>
+                                        <div class="exemplos">
+                                            {
+                                                "texto": [
+                                                    {
+                                                    "token": {
+                                                        "lema": "teste",
+                                                        "palavra": "teste",
+                                                        "pos": "NCMS000"
+                                                    }
+                                                }
+                                                ]
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-success">Exemplo de retorno em XML</div>
+                                        <div class="exemplos">
+                                            &lt;texto&gt;
+                                                &lt;token&gt;
+                                                    &lt;palavra&gt;teste&lt;/palavra&gt;
+                                                    &lt;lema&gt;teste&lt;/lema&gt;
+                                                    &lt;pos&gt;NCMS000&lt;/pos&gt;
+                                                &lt;/token&gt;
+                                            &lt;/texto&gt;
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="div_info">
+                    <div class="container">
+                        <h4 class="text-success bold">3. Acesso ao recurso de análise léxica e semântica</h4>
+                        <div class="text-justify separador">
+                            O serviço de análise léxica e semântica, recebe como entrada um texto na língua
+                            portuguesa
+                            e devolve este mesmo texto na forma de uma lista de <i>tokens</i>
+                            contendo informações léxico semânticas providas de uma das duas <i>WordNet</i> da língua
+                            portuguesa o <a target="_blank" href="http://ontopt.dei.uc.pt/">Onto.PT</a> ou
+                            <a target="_blank" href="http://wordnet.pt/">Pulo</a> , corespondente a cada
+                            <i>token</i> contido no texto.
+                            A resposta pode ser obtida nos formatos XML e JSON.
+                        </div>
+                        <div class="container">
+                            <h5 class="text-justify text-success bold">3.1. Informações técnicas para requisição ao
+                                Onto.PT</h5>
+                            <div class="separador">
+                                <div><label class="bold">Url para resposta em formato JSON: </label>http://portservice.pythonanywhere.com/get_analise_lexico_semantica_ontopt_json
+                                </div>
+                                <div><label class="bold">Url para resposta em formato XML: </label>http://portservice.pythonanywhere.com/get_analise_lexico_semantica_ontopt_xml
+                                </div>
+                                <div><label class="bold">Parâmetro: </label>texto_portugues</div>
+                                <div><label class="bold">Parâmetro: </label>indice</div>
+                            </div>
+
+                            <div class="text-justify separador">
+                                São retornados por padrão, para cada <i>token</i>, que corresponda a uma palavra da
+                                língua portuguesa e que representa
+                                as classes gramaticais (Verbo, Advérbio, Substantivo e Adjetivo) seus sinônimos e
+                                antônimos. O parâmetro "indice"
+                                especifica que mais uma propriedade por ser retornado caso seja especificado, caso a
+                                aplicação requisitante do serviço
+                                não necessite de nenhuma das funcionalidades, o parâmetro indice deve conter o o
+                                valor "None". O parâmetro "indice" se refere a um número
+                                inteiro que identifica o tipo de análise opcional. abaixo podem ser visualizados
+                                todos os índices e seus respectivas
+                                análises associadas.
+                            </div>
+                            <div id="indices">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">01-finalidadeDe</li>
+                                            <li class="list-group-item">02-localOrigemDe</li>
+                                            <li class="list-group-item">03-originarioDe</li>
+                                            <li class="list-group-item">04-incluiAlgoComPropriedade</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">05-propriedadeDeAlgoMembroDe</li>
+                                            <li class="list-group-item">06-devidoAQualidade</li>
+                                            <li class="list-group-item">07-qualidadeDoQueÉ</li>
+                                            <li class="list-group-item">08-accaoParaManeira</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">09-meioParaManeira</li>
+                                            <li class="list-group-item">10-maneiraPorMeioDe</li>
+                                            <li class="list-group-item">11-parteDe</li>
+                                            <li class="list-group-item">12-resultadoDaAccao</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">13-servePara</li>
+                                            <li class="list-group-item">14-temComoParteAlgoComPropriedade</li>
+                                            <li class="list-group-item">15-propriedadeDeAlgoParteDe</li>
+                                            <li class="list-group-item">16-serveParaAccao</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">17-temQualidade</li>
+                                            <li class="list-group-item">18-resultadoDe</li>
+                                            <li class="list-group-item">19-causadorDe</li>
+                                            <li class="list-group-item">20-parteDeAlgoComPropriedade</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">21-propriedadeDeAlgoQueTemParte</li>
+                                            <li class="list-group-item">22-produtorDe</li>
+                                            <li class="list-group-item">23-produzidoPor</li>
+                                            <li class="list-group-item">24-finalidadeDaAccao</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">25-resultadoDeAlgoComPropriedade</li>
+                                            <li class="list-group-item">26-propriedadeDeAlgoQueCausa</li>
+                                            <li class="list-group-item">27-maneiraComPropriedade</li>
+                                            <li class="list-group-item">28-propriedadeDaManeira</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">29-propriedadeDeAlgoProdutorDe</li>
+                                            <li class="list-group-item">30-produzidoPorAlgoComPropriedade</li>
+                                            <li class="list-group-item">31-estadoDe</li>
+                                            <li class="list-group-item">32-temEstado</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">33-fazSeCom</li>
+                                            <li class="list-group-item">34-devidoAEstado</li>
+                                            <li class="list-group-item">35-referidoPeloQueÉ</li>
+                                            <li class="list-group-item">36-dizSeSobre</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">37-naoHaNaManeira</li>
+                                            <li class="list-group-item">38-accaoNaoDaManeira</li>
+                                            <li class="list-group-item">39-membroDeAlgoComPropriedade</li>
+                                            <li class="list-group-item">34-estadoDoQueÉ</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">41-maneiraResultadoDaAccao</li>
+                                            <li class="list-group-item">42-propriedadeDeAlgoQueContem</li>
+                                            <li class="list-group-item">43-contidoEmAlgoComPropriedade</li>
+                                            <li class="list-group-item">44-maneiraSem</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">45-feitoPeloQueÉ</li>
+                                            <li class="list-group-item">46-dizSeDoQue</li>
+                                            <li class="list-group-item">47-propriedadeDoQueServePara</li>
+                                            <li class="list-group-item">48-fazSeComAlgoComPropriedade</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">49-fazSeEm</li>
+                                            <li class="list-group-item">50-accaoResultadoDe</li>
+                                            <li class="list-group-item">51-propriedadeDeAlgoQueInclui</li>
+                                            <li class="list-group-item">52-inclui</li>
+                                            <li class="list-group-item">53-membroDe</li>
+                                            <li class="list-group-item">54-accaoPara</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">55-contem</li>
+                                            <li class="list-group-item">56-contidoEm</li>
+                                            <li class="list-group-item">57-produtorDeAlgoComPropriedade</li>
+                                            <li class="list-group-item">58-propriedadeDeAlgoProduzidoPor</li>
+                                            <li class="list-group-item">59-finalidadeDeAlgoComPropriedade</li>
+                                            <li class="list-group-item">60-propriedadeDoQueServeParaAccao</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">61-qualidadeDe</li>
+                                            <li class="list-group-item">62-localOnde</li>
+                                            <li class="list-group-item">63-maneiraSemAccao</li>
+                                            <li class="list-group-item">64-propriedadeDeAlgoResultadoDe</li>
+                                            <li class="list-group-item">65-causadorDeAlgoComPropriedade</li>
+                                            <li class="list-group-item">66-materialDe</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <ul class="list-group">
+                                            <li class="list-group-item">67-accaoQueCausa</li>
+                                            <li class="list-group-item">68-temParte</li>
+                                            <li class="list-group-item">69-feitoDe</li>
+                                            <li class="list-group-item">70-causadorDaAccao</li>
+                                            <li class="list-group-item">71-hiperonimoDe</li>
+                                            <li class="list-group-item">72-hiponimoDe</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="text-justify separador">
+                                <span class="bold">Observação:</span> algumas palavras podem não conter todas as
+                                propriedades acima citadas.
+                                Para mais informações sobre os recursos do Onto.PT e suas propriedades e
+                                características acesse a <a href="http://ontopt.dei.uc.pt/"
+                                                            target="_blank">página</a>
+                                do projeto que ofere um conjunto de refências que podem ser úteis para melhor
+                                entendimento do recurso.
+                            </div>
+
+
+                            <div class="row">
+                                <div class="separador">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="text-success">Exemplo de requisição JSON com Jquery via
+                                                Ajax:
+                                            </div>
+                                            <div class="exemplos">
+                                                $.ajax({
+                                                    type: <span class="string">"GET"</span>,
+                                                    url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_lexico_semantica_ontopt_json/"</span>,
+                                                    dataType:<span class="string">"xml"</span>,
+                                                    data: {<span class="string">"texto_portugues":"teste"</span>,<span
+                                                        class="string">"indice":"None"</span>},
+                                                    success:<span class="function"> function</span> (retorno) {
+                                                    },
+
+                                                    error: <span class="function">function</span> () {
+                                                    }
+                                                });
+
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="text-success">Exemplo de requisição XML com Jquery via
+                                                Ajax:
+                                            </div>
+                                            <div class="exemplos">
+                                                $.ajax({
+                                                    type: <span class="string">"GET"</span>,
+                                                    url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_lexico_semantica_ontopt_xml/"</span>,
+                                                    dataType:<span class="string">"xml"</span>,
+                                                    data: {<span class="string">"texto_portugues":"teste"</span>,<span
+                                                        class="string">"indice":"None"</span>},
+                                                    success:<span class="function"> function</span> (retorno) {
+                                                    },
+
+                                                    error: <span class="function">function</span> () {
+                                                    }
+                                                });
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="text-success">Exemplo de retorno em JSON</div>
+                                            <div class="exemplos">
+                                                {
+                                                    "texto": [
+                                                        {
+                                                            "token": {
+                                                                "palavra": "teste",
+                                                                "significados": [
+                                                                {
+                                                                "classe": "NomeSynset",
+                                                                "definicao":""",
+                                                                "id": "22630",
+                                                                "lista_antonimo": "",
+                                                                "lista_sinonimo": ["tentame","mostragem"]
+                                                                },
+                                                                ]
+                                                            }
+                                                        }
+                                                    ]
+                                                }
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="text-success">Exemplo de retorno em XML</div>
+                                            <div class="exemplos">
+                                                &lt;texto&gt;
+                                                    &lt;token&gt;
+                                                        &lt;palavra&gt;teste&lt;/palavra&gt;
+                                                        &lt;significados&gt;
+                                                            &lt;significado&gt;
+                                                                &lt;id&gt;22630&lt;/id&gt;
+                                                                &lt;definicao&gt;&lt;/definicao&gt;
+                                                                &lt;classe&gt;NomeSynset&lt;/classe&gt;
+                                                                &lt;lista_sinonimo&gt;
+                                                                    &lt;palavra&gt;tentame&lt;/palavra&gt;
+                                                                    &lt;palavra&gt;mostragem&lt;/palavra&gt;
+                                                                &lt;/lista_sinonimo&gt;
+                                                                &lt;lista_antonimo/&gt;
+                                                            &lt;/significado&gt;
+                                                        &lt;/significados&gt;
+                                                    &lt;/token&gt;
+                                                &lt;/texto&gt;
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-justify separador">
+                                    <span class="bold">Observação:</span> Por motivos de tamanho dos arquivos de
+                                    retorno acima, não foi exibido
+                                    na integra todas as informações retornadas, deixamos para a análise detalhada
+                                    para o requerente do serviço.
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container">
+                    <h5 class="text-justify text-success bold">3.1. Informações técnicas para requisição ao
+                        Pulo</h5>
+                    <div class="separador">
+                        <div><label class="bold">Url para resposta em formato JSON: </label>http://portservice.pythonanywhere.com/get_analise_lexico_semantica_pulo_json
+                        </div>
+                        <div><label class="bold">Url para resposta em formato XML: </label>http://portservice.pythonanywhere.com/get_analise_lexico_semantica_pulo_xml
+                        </div>
+                        <div><label class="bold">Parâmetro: </label>texto_portugues</div>
+
+                    </div>
+
+                    <div class="text-justify separador">
+                        São retornados por padrão, para cada <i>token</i>, que corresponda a uma palavra da
+                        língua portuguesa e que representa as classes gramaticais (verbo, advérbio, substantivo e
+                        adjetivo)
+                        seus synsets e lexicalizações sinônimas, ou seja, palavras que represenam um mesmo sentido. A
+                        <i>WordNet</i>
+                        Pulo é alinhada com a <i>WordNet</i> de <a target="_blank"
+                                                                   href="https://wordnet.princeton.edu/"><i>Priceton</i></a>
+                        ou WNPr.
+
+                    </div>
+
+                    <div class="text-justify separador">
+                        <span class="bold">Observação:</span> algumas palavras podem não conter todas as
+                        propriedades acima citadas.
+                        Para mais informações sobre os recursos do Pulo e suas propriedades e
+                        características acesse a <a href="http://wordnet.pt/" target="_blank">página</a>
+                        do projeto que ofere um conjunto de refências que podem ser úteis para melhor
+                        entendimento do recurso.
+                    </div>
+
+
+                    <div class="row">
+                        <div class="separador">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="text-success">Exemplo de requisição JSON com Jquery via
+                                        Ajax:
+                                    </div>
+                                    <div class="exemplos">
+                                        $.ajax({
+                                            type: <span class="string">"GET"</span>,
+                                            url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_lexico_semantica_pulo_json/"</span>,
+                                            dataType:<span class="string">"xml"</span>,
+                                            data: {<span class="string">"texto_portugues":"teste"</span>}
+                                            success:<span class="function"> function</span> (retorno) {
+                                            },
+
+                                            error: <span class="function">function</span> () {
+                                            }
+                                        });
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-success">Exemplo de requisição XML com Jquery via
+                                        Ajax:
+                                    </div>
+                                    <div class="exemplos">
+                                        $.ajax({
+                                            type: <span class="string">"GET"</span>,
+                                            url: <span class="string">"http://portservice.pythonanywhere.com/get_analise_lexico_semantica_pulo_xml/"</span>,
+                                            dataType:<span class="string">"xml"</span>,
+                                            data: {<span class="string">"texto_portugues":"teste"</span>}
+                                            success:<span class="function"> function</span> (retorno) {
+                                            },
+
+                                            error: <span class="function">function</span> () {
+                                            }
+                                        });
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="text-success">Exemplo de retorno em JSON</div>
+                                    <div class="exemplos">
+                                        {
+                                            "texto": [
+                                                {
+                                                    "token": {
+                                                        "palavra": "teste",
+                                                        "significados": [
+                                                            {
+                                                            "classe": "n",
+                                                            "definicao":"qualquer procedimento padronizado para medir a sensibilidade ou a
+                                                             memória ou inteligência ou aptidão ou personalidade etc",
+                                                            "id": "por-30-01006675-n",
+                                                            "lista_sinonimo":["ensaio","exame""experimentação",experimento","experiênancia","prova",]
+                                                            },
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-success">Exemplo de retorno em XML</div>
+                                    <div class="exemplos">
+                                        &lt;texto&gt;
+                                            &lt;token&gt;
+                                                &lt;palavra&gt;teste&lt;/palavra&gt;
+                                                &lt;significados&gt;
+                                                    &lt;significado&gt;
+                                                        &lt;id&gt;por-30-01006675-n&lt;/id&gt;
+                                                        &lt;definicao&gt;qualquer procedimento padronizado para medir a sensibilidade ou
+                                                        a memória ou inteligência ou aptidão ou personalidade etc&lt;/definicao&gt;
+                                                        &lt;classe&gt;n&lt;/classe&gt;
+                                                        &lt;lista_sinonimo&gt;
+                                                            &lt;palavra&gt;controlo&lt;/palavra&gt;
+                                                            &lt;palavra&gt;verificação&lt;/palavra&gt;
+                                                            &lt;palavra&gt;ensaio&lt;/palavra&gt
+                                                            &lt;palavra&gt;prova&lt;/palavra&gt
+                                                            &lt;palavra&gt;teste&lt;/palavra&gt
+                                                        &lt;/lista_sinonimo&gt;
+                                                    &lt;/significado&gt;
+                                                &lt;/significados&gt;
+                                            &lt;/token&gt;
+                                        &lt;/texto&gt;
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-justify separador">
+                            <span class="bold">Observação:</span> Por motivos de tamanho dos arquivos de
+                            retorno acima, não foi exibido
+                            na integra todas as informações retornadas, deixamos para a análise detalhada
+                            para o requerente do serviço.
+                        </div>
+                    </div>
+
+                    <div class="text-justify separador">
+                        <span class="bold">Disposições gerais:</span> Para qualquer dúvida ou sugestão
+                        favor entrar em contato para o email: wralmeida@inf.ufes.br.
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}

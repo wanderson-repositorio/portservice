@@ -1,0 +1,91 @@
+﻿{% extends "app/layout.html" %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container body-content">
+        <div class="conceituacao">
+            <form>
+                {% csrf_token %}
+
+                <div class="row well">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">Texto de Entrada</div>
+                                <textarea class="form-control caixa-texto" rows="7" id="texto_portugues"
+                                          name="texto_portugues"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="col-md-6 h">
+                                <div class="input-group form-group"><span class="input-group-addon"><span
+                                        class="glyphicon glyphicon-asterisk"></span></span>
+                                    <select required="required" class="form-control" name="operacao" id="operacao">
+                                        <option value="1">Análise Morfossintática</option>
+                                        <option value="2">Análise Léxico Semântica</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 h">
+                                <div class="input-group form-group" id="tipo_tagger"><span
+                                        class="input-group-addon"><span
+                                        class="glyphicon glyphicon-asterisk"></span></span>
+                                    <select required="required" class="form-control" name="tagger" id="tagger">
+                                        <option value="1">Etiquetador Padrão</option>
+                                        <option value="2">Etiquetador TreeTagger</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 h">
+                                 <div class="input-group form-group" id="tipo_tagger"><span
+                                        class="input-group-addon"><span
+                                        class="glyphicon glyphicon-asterisk"></span></span>
+                                    <select required="required" class="form-control" name="wordnet" id="wordnet">
+                                        <option value="1">Onto.PT</option>
+                                        <option value="2">Pulo</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 h">
+                                 <button type="button" class="btn btn-success" id="button_conceituar"
+                                        name="button_conceituar">
+                                    Executar
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">Texto Resultante</div>
+                            <div id="tokens_retornados" style="word-wrap:break-word"
+                                 class="form-control text-justify"></div>
+                        </div>
+                     </div>
+                </div>
+                </div>
+
+            </form>
+        </div>
+
+        <form>
+
+            <div id="morphologia">
+            </div>
+
+
+            <div id="synsets">
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}
+{% block scripts %}
+{% endblock %}
+

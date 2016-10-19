@@ -1,0 +1,67 @@
+﻿#button_conceituar
+{
+    margin-bottom: 10px;
+}
+
+textarea {
+        text-align: justify;
+        white-space: normal;
+    }
+
+.caixa-texto {
+    max-width: 100%;
+    max-height: 150px;
+    height: 150px;
+    resize: none;
+}
+.h
+{
+ margin-top: 10px;
+}
+
+
+#tokens_retornados
+{
+    max-width: 100%;
+    max-height: 150px;
+    height: 150px;
+    resize: none;   
+    overflow-y:scroll;
+}
+
+.resposta {
+
+    min-height: 150px;
+}
+
+.info {
+    margin-left: 12px;
+}
+
+p > span {
+    font-weight: bold;
+}
+
+#controles {
+    margin-top: 3px;
+}
+
+.conceituacao {
+    margin: 50px 0px 50px 0px;
+}
+
+.propriedades {
+    font-size: 14px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.titulo {
+    font-weight: bold;
+}
+
+.span-token {
+    font-weight: bold;
+}
+
+
