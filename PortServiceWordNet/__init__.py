@@ -22,6 +22,6 @@ for operacoes in arq:
         dicionarioOperacoes[int(atributos[1])] = atributos[0]
 rdf.DICIONARIO_OPERACOES = dicionarioOperacoes
 
-'''arq = codecs.open('/home/portservice/wordnet/openWordNetPT.pickle', 'rb+')
+arq = codecs.open('/home/portservice/wordnet/openWordNetPT.pickle', 'rb+')
 openWN.openWordNetPT= pickle.load(arq)
-arq.close()'''
+arq.close()
