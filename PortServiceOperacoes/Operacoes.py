@@ -2,7 +2,8 @@
 from PortServiceConstantes import Constantes
 import PortServiceGerenteClasses.GerenteClasses
 from nltk import sent_tokenize
-
+import string
+import re
 class Operacoes(object):
 
 
@@ -163,7 +164,15 @@ class Operacoes(object):
 
 
     def SentenceTokenizer(self,texto):
-        return sent_tokenize(texto,language = 'portuguese')
+        sentences = sent_tokenize(texto,language = 'portuguese')
+        newsentences = list()
+        exclude = set(string.punctuation)
+        pattern = re.compile(r'\s+',re.UNICODE)
+
+        for sent in sentences:
+            newsentences.append(re.sub(pattern,' ',''.join(ch for ch in sent if ch not in exclude)))
+
+        return newsentences
 
 
 
